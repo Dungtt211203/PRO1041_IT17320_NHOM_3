@@ -15,6 +15,8 @@ public class PRO1041_IT17320__NHOM3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("namntph25455");
+        System.out.println("ádasdasd");
     }
     
 }
