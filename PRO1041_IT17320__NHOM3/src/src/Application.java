@@ -5,6 +5,8 @@
  */
 package edu.fplhn.sof203;
 
+import src.view.FrmChatLieu;
+
 /**
  *
  * @author Phong
@@ -12,6 +14,6 @@ package edu.fplhn.sof203;
 public class Application {
     
     public static void main(String[] args) {
-        
+        new FrmChatLieu().setVisible(true);
     }
 }
