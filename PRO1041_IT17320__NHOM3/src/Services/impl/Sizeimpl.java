@@ -2,17 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package Service.impl;
+package Services.impl;
 
-import Models.Size;
+import DomainModels.Size;
 import java.util.ArrayList;
 
 /**
  *
  * @author Admin
  */
-public interface SizeImpl {
-    
+public interface Sizeimpl {
+
     void insert(Size s);
 
     void update(Size s, String delete);

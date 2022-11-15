@@ -4,8 +4,8 @@
  */
 package Views;
 
-import Models.Size;
-import Service.SizeService;
+import DomainModels.Size;
+import Services.SizeService;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,7 +24,6 @@ public class SizeForm extends javax.swing.JFrame {
         this.sService = new SizeService();
         initComponents();
         this.getData();
-
     }
 
     public void getData() {
@@ -47,9 +46,6 @@ public class SizeForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnSua = new javax.swing.JButton();
-        btnXoa = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbSize = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -58,27 +54,12 @@ public class SizeForm extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         txtMa = new javax.swing.JTextField();
         txtTen = new javax.swing.JTextField();
+        btnSua2 = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnSua.setText("Sửa");
-        btnSua.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaActionPerformed(evt);
-            }
-        });
-
-        btnXoa.setText("Xóa");
-        btnXoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoaActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("SIZE");
 
         tbSize.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,12 +85,30 @@ public class SizeForm extends javax.swing.JFrame {
 
         jLabel4.setText("Ten");
 
+        btnSua2.setText("Sửa");
+        btnSua2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSua2ActionPerformed(evt);
+            }
+        });
+
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);
             }
         });
+
+        btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("SIZE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,9 +134,9 @@ public class SizeForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSua2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE))
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addGap(369, 369, 369)
@@ -157,13 +156,13 @@ public class SizeForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua))
+                    .addComponent(btnSua2))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -171,17 +170,15 @@ public class SizeForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+    private void tbSizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSizeMouseClicked
         // TODO add your handling code here:
-        Size s = this.getLoadData();
-        if (s == null) {
-            return;
-        }
-        this.sService.insert(s);
-        this.getData();
-    }//GEN-LAST:event_btnThemActionPerformed
+        int row = tbSize.getSelectedRow();
+        txtId.setText(tbSize.getValueAt(row, 0).toString());
+        txtMa.setText(tbSize.getValueAt(row, 1).toString());
+        txtMa.setText(tbSize.getValueAt(row, 2).toString());
+    }//GEN-LAST:event_tbSizeMouseClicked
 
-    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+    private void btnSua2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua2ActionPerformed
         // TODO add your handling code here:
         int row = tbSize.getSelectedRow();
         if (row == -1) {
@@ -193,7 +190,17 @@ public class SizeForm extends javax.swing.JFrame {
         }
         this.sService.update(s, s.getId());
         this.getData();
-    }//GEN-LAST:event_btnSuaActionPerformed
+    }//GEN-LAST:event_btnSua2ActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+        Size s = this.getLoadData();
+        if (s == null) {
+            return;
+        }
+        this.sService.insert(s);
+        this.getData();
+    }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
@@ -209,18 +216,6 @@ public class SizeForm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnXoaActionPerformed
-
-    private void tbSizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSizeMouseClicked
-        // TODO add your handling code here:
-        int row = tbSize.getSelectedRow();
-        txtId.setText(tbSize.getValueAt(row, 0).toString());
-        txtMa.setText(tbSize.getValueAt(row, 1).toString());
-        txtMa.setText(tbSize.getValueAt(row, 2).toString());
-    }//GEN-LAST:event_tbSizeMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
     private Size getLoadData() {
         String id = this.txtId.getText();
         String ma = this.txtMa.getText().trim();
@@ -229,6 +224,9 @@ public class SizeForm extends javax.swing.JFrame {
         return s;
     }
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -263,6 +261,8 @@ public class SizeForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSua;
+    private javax.swing.JButton btnSua1;
+    private javax.swing.JButton btnSua2;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JLabel jLabel1;
