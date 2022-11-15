@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Models;
+package ViewModels;
 
 /**
  *
  * @author MyPC
  */
-public class NhaSanXuat {
+public class ChucVuViewModel {
     private String id;
     private String ma;
     private String ten;
 
-    public NhaSanXuat() {
+    public ChucVuViewModel() {
     }
 
-    public NhaSanXuat(String id, String ma, String ten) {
+    public ChucVuViewModel(String id, String ma, String ten) {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
@@ -46,7 +46,7 @@ public class NhaSanXuat {
     public void setTen(String ten) {
         this.ten = ten;
     }
-    
+
     
     
 }

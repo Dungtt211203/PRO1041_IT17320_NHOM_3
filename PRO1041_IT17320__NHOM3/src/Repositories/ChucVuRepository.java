@@ -3,67 +3,77 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Repository;
+package Repositories;
 
-import Models.ChucVu;
+import DomainModels.ChucVu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Util.util;
+import Utilities.DBContext;
+import ViewModels.ChucVuViewModel;
+import java.util.List;
 
 /**
  *
  * @author MyPC
  */
-public class ChucVuRepo {
-    public void insert(ChucVu c){
+public class ChucVuRepository {
+    public boolean add(ChucVu c){
         try {
-            Connection conn=util.getConnection();
+            Connection conn = DBContext.GetConnection();
             String sql="INSERT INTO ChucVu"+"(Ma,Ten)"+"VALUES(?,?)";
             PreparedStatement ps=conn.prepareStatement(sql);
             ps.setString(1, c.getMa());
             ps.setString(2, c.getTen());
             ps.execute();
             System.out.println("Truy vấn thành công");
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
     
-    public void update(ChucVu c, String id) {
+    public boolean update(ChucVu c) {
         try {
-            Connection conn = util.getConnection();
-            String sql = "UPDATE ChucVu SET " + "Ma=?,Ten=?WHERE Id=?";
+            Connection conn = DBContext.GetConnection();
+            String sql = "UPDATE ChucVu SET " + "Ma = ? ,Ten = ? WHERE ID = ? ";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, c.getMa());
             ps.setString(2, c.getTen());
-            ps.setString(3, id);
+            ps.setString(3, c.getId());
             ps.execute();
             System.out.println("Truy vấn thành công");
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void delete(String id) {
+    public boolean delete(ChucVu c) {
         try {
-            Connection conn = util.getConnection();
-            String sql = "DELETE FROM ChucVu WHERE id=?";
+            Connection conn = DBContext.GetConnection();
+            String sql = "DELETE FROM CHUCVU WHERE ID = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, id);
+            ps.setString(1, c.getId());
             ps.execute();
             System.out.println("Truy vấn thành công");
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
-    public ArrayList<ChucVu> all(){
-        ArrayList<ChucVu> listCV=new ArrayList<>();
+    
+    
+    public List<ChucVuViewModel> GetAll(){
+        List<ChucVuViewModel> listCV = new ArrayList<>();
         try {
-            Connection conn=util.getConnection();
-            String sql="SELECT * FROM ChucVu";
+            Connection conn = DBContext.GetConnection();
+            String sql = "SELECT * FROM ChucVu";
             PreparedStatement ps=conn.prepareStatement(sql);
             ps.execute();
             ResultSet rs=ps.getResultSet();
@@ -72,8 +82,8 @@ public class ChucVuRepo {
                 String ma=rs.getString("Ma");
                 String ten=rs.getString("Ten");
                 
-                ChucVu s=new ChucVu(id, ma, ten);
-                listCV.add(s);
+                ChucVuViewModel cv = new ChucVuViewModel(id, ma, ten);
+                listCV.add(cv);
             }
             System.out.println("Truy vấn thành công");
         } catch (SQLException e) {
@@ -81,4 +91,6 @@ public class ChucVuRepo {
         }
         return listCV;
     }
+    
+    
 }

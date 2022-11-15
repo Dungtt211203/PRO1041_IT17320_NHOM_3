@@ -1,23 +1,23 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package Models;
+package DomainModels;
 
 /**
  *
- * @author Admin
+ * @author MyPC
  */
-public class Size {
-    
+public class ChucVu {
     private String id;
     private String ma;
     private String ten;
 
-    public Size() {
+    public ChucVu() {
     }
 
-    public Size(String id, String ma, String ten) {
+    public ChucVu(String id, String ma, String ten) {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
@@ -46,4 +46,7 @@ public class Size {
     public void setTen(String ten) {
         this.ten = ten;
     }
+
+    
+    
 }
