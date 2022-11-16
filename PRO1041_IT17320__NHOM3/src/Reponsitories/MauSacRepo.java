@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Repository;
+package Reponsitories;
 
-import Models.MauSac;
-import Util.DBContext;
+import DomainModels.MauSac;
+import Utilities.DBContext;
+import ViewModels.MauSacViewModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,8 +63,8 @@ public class MauSacRepo {
         }
     }
 
-    public ArrayList<MauSac> all() {
-        ArrayList<MauSac> listMS = new ArrayList<>();
+    public ArrayList<MauSacViewModel> all() {
+        ArrayList<MauSacViewModel> listM = new ArrayList<>();
         try {
             Connection conn = DBContext.getConnection();
             String sql = "SELECT * FROM MauSac";
@@ -75,14 +76,14 @@ public class MauSacRepo {
                 String ma = rs.getString("Ma");
                 String ten = rs.getString("Ten");
 
-                MauSac m = new MauSac(id, ma, ten);
-                listMS.add(m);
+                MauSacViewModel m = new MauSacViewModel(id, ma, ten);
+                listM.add(m);
             }
             System.out.println("Truy vấn thành công");
         } catch (Exception e) {
             e.getMessage();
         }
-        return listMS;
+        return listM;
     }
 
 }

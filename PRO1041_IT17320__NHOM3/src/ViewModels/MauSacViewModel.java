@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Models;
+package ViewModels;
 
 /**
  *
  * @author MyPC
  */
-public class MauSac {
+public class MauSacViewModel {
     private String id;
     private String ma;
     private String ten;
 
-    public MauSac() {
+    public MauSacViewModel() {
     }
 
-    public MauSac(String id, String ma, String ten) {
+    public MauSacViewModel(String id, String ma, String ten) {
         this.id = id;
         this.ma = ma;
         this.ten = ten;

@@ -5,8 +5,10 @@
  */
 package Views;
 
-import Models.MauSac;
-import Service.MauSacService;
+import DomainModels.MauSac;
+import Services.MauSacService;
+import Services.impl.MauSacServiceImpl;
+import ViewModels.MauSacViewModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +24,7 @@ public class MauSacForm extends javax.swing.JFrame {
     private MauSacService mService;
     
     public MauSacForm() {
-        this.mService=new MauSacService();
+        this.mService=new MauSacServiceImpl();
         initComponents();
         this.getData();
     }
@@ -30,7 +32,7 @@ public class MauSacForm extends javax.swing.JFrame {
     public void getData(){
         DefaultTableModel dtm=(DefaultTableModel) this.tbMauSac.getModel();
         dtm.setRowCount(0);
-        for (MauSac m : this.mService.getListMS()) {
+        for (MauSacViewModel m : this.mService.getListMS()) {
             Object[] rowdata={
                 m.getId(),m.getMa(),m.getTen()
             };

@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Service;
+package Services.impl;
 
-import Models.MauSac;
-import Repository.MauSacRepo;
+import DomainModels.MauSac;
+import Reponsitories.MauSacRepo;
+import Services.MauSacService;
+import ViewModels.MauSacViewModel;
 import java.util.ArrayList;
 
 /**
  *
  * @author MyPC
  */
-public class MauSacService {
+public class MauSacServiceImpl implements MauSacService{
     private MauSacRepo mRepo;
-    public MauSacService(){
+    public MauSacServiceImpl(){
         this.mRepo=new MauSacRepo();
     }
     public void insert(MauSac m){
@@ -27,7 +29,7 @@ public class MauSacService {
     public void delete(String id){
         this.mRepo.delete(id);
     }
-    public ArrayList<MauSac> getListMS(){
+    public ArrayList<MauSacViewModel> getListMS(){
         return this.mRepo.all();
     }
 }
