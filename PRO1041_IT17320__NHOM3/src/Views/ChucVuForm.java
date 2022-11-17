@@ -43,7 +43,6 @@ public class ChucVuForm extends javax.swing.JFrame {
                 x.getId(), x.getMa(), x.getTen()
             });
         }
-    
     }
     
     public ChucVu GetDataFromGui(){
