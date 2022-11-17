@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Services;
+package Services.impl;
 
+import Services.*;
 import DomainModels.Size;
 import Reponsitories.SizeRepo;
 import java.util.ArrayList;

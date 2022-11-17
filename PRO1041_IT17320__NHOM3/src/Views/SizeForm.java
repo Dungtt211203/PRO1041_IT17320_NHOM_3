@@ -5,7 +5,7 @@
 package Views;
 
 import DomainModels.Size;
-import Services.SizeService;
+import Services.impl.SizeService;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
