@@ -37,7 +37,7 @@ public class FrmChatLieu extends javax.swing.JFrame {
     private void LoadTable() {
         _DefaultTableModel = (DefaultTableModel) tblchatlieu.getModel();
         _DefaultTableModel.setRowCount(0);
-        for (var x : _Service.GetAll()) {
+        for (ChatLieuViewModel x : _Service.GetAll()) {
             _DefaultTableModel.addRow(new Object[]{
                 x.getId(),
                 x.getMa(),
@@ -209,7 +209,7 @@ public class FrmChatLieu extends javax.swing.JFrame {
 
     private void btnxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaActionPerformed
         // TODO add your handling code here:
-        var temp = new ChatLieuViewModel();
+        ChatLieuViewModel temp = new ChatLieuViewModel();
         temp.setId(_IdWhenClick);
         JOptionPane.showMessageDialog(this, _Service.xoaChatLieu(temp));
         LoadTable();
